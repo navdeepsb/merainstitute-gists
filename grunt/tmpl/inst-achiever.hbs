@@ -1,0 +1,35 @@
+<div class="tm-membr-cntnr inline-blk t-left">
+	<div class="tm-membr">
+		<input class="js-achvr-id" type="hidden" value="{{pid}}">
+		<input class="js-achvr-img" type="hidden" value="{{profileImg}}">
+		<div class="left tm-membr-img js-img-upload-ctrl">
+			<img class="js-img-upload" src="{{#if profileImg}}../{{profileImg}}{{else}}../assets/img/vectors/user.svg{{/if}}" alt="achievers photo" data-upload-type="ACHIEVERS_IMAGE" data-owner="{{pid}}">
+			<button class="btLogoUpload"><span class="fa fa-upload fa-fw"></span> Upload</button>
+			<button class="btLogoRemove js-modal-show" data-target="#mdl-img-del"><span class="fa fa-times-circle fa-fw"></span></button>
+			<input class="btLogoUploadDefault none" class="none" type="file" accept="image/*">
+		</div>
+		<p class="upper small heading"><span class="underline">Name</span></p>
+		<input type="text" class="js-achvr-nm tb tb-light tb-read-only w-auto" disabled="true" value="{{name}}">
+		<br />
+		<p class="upper small heading"><span class="underline">Achievement</span></p>
+		<input type="text" class="js-achvr-achvmt tb tb-light tb-read-only w-auto" disabled="true" value="{{achievement}}">
+		<br />
+		<p class="upper small heading"><span class="underline">Description</span></p>
+		<textarea name="" id="" cols="30" rows="10" class="js-achvr-desc tb tb-light tb-read-only txt-ar" disabled="true">{{#if descr}}{{descr}}{{else}}...{{/if}}</textarea>
+		<br />
+		<button class="bb-achvr-edt"><span class="fa fa-edit fa-fw"></span></button>
+		<button class="bb-achvr-del"><span class="fa fa-trash fa-fw"></span></button>
+		<div class="js-achvr-save pacer-wrappr center" style="display: none">
+			<button class="bb-achvr-save btn-sheen btn-sheen-small btn-sheen-intrctve upper">
+				Save
+				<span class="sheen"></span>
+			</button>
+			<div class="pacer"></div>
+		</div>
+		<div class="overlay" style="display: none">
+			<br />
+			<br />
+			<p class="center white mono bigger">Deleting...</p>
+		</div>
+	</div>
+</div>

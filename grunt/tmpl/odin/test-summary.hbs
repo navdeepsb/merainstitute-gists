@@ -1,0 +1,50 @@
+<li>
+	<span class="bigger js-summary-head">
+		{{#if studMeta}}
+		<span class="dp-tiny dp-tiny-medi">
+			<img src="{{studMeta.profileImg}}" alt="img">
+		</span>
+		{{studMeta.name}} <span class="medium">{{studMeta.email}}</span>
+		{{else}}
+		{{name}}
+		{{/if}}
+	</span>
+	<br />
+	{{#if attemptMeta}}
+	Test attempted on {{getDateAndTime attemptMeta.startTime}}
+	<table>
+		<tr>
+			<td>Correct answers</td>
+			<td class="center">{{attemptMeta.stats.correctQues}}</td>
+		</tr>
+		<tr>
+			<td>Incorrect answers</td>
+			<td class="center">{{attemptMeta.stats.incorrectQues}}</td>
+		</tr>
+		<tr>
+			<td>Questions attempted</td>
+			<td class="center">{{attemptMeta.stats.attemptedQues}}</td>
+		</tr>
+		<tr>
+			<td>Total questions</td>
+			<td class="center">{{attemptMeta.stats.totalQues}}</td>
+		</tr>
+		<tr>
+			<td>Marks</td>
+			<td class="center">{{attemptMeta.stats.marks}} / {{attemptMeta.stats.maxMarks}}</td>
+		</tr>
+		<tr>
+			<td>Time taken (hh:mm:ss)</td>
+			<td class="center">{{formatSeconds attemptMeta.timeTaken false}}</td>
+		</tr>
+		<tr>
+			<td>Test duration (hh:mm:ss)</td>
+			<td class="center">{{formatSeconds timeDur true}}</td>
+		</tr>
+	</table>
+	{{else}}
+	Duration: {{timeDur}} mins
+	<br />
+	<a href="{{takeTestLink}}">take this test</a>
+	{{/if}}
+</li>

@@ -1,0 +1,37 @@
+@font-face {
+	font-family: "Open Sans";
+	src: url("webfonts/OpenSans-Regular.eot");
+	src: url("webfonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+	     url("webfonts/OpenSans-Regular.woff") format("woff"),
+	     url("webfonts/OpenSans-Regular.ttf") format("truetype"),
+	     url("webfonts/OpenSans-Regular.svg#opensansregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    src: local('SourceSansPro-Regular'),
+         local('Source Sans Pro'),
+         url('webfonts/SourceSansPro-Regular.eot') format('embedded-opentype'),
+         url('webfonts/SourceSansPro-Regular.otf.woff') format('woff'),
+         url('webfonts/SourceSansPro-Regular.otf') format('opentype'),
+         url('webfonts/SourceSansPro-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+	font-family: "Merriweather";
+	src: url("webfonts/Merriweather-Regular.otf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Existence Light";
+	src: url("webfonts/Existence-Light.otf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}

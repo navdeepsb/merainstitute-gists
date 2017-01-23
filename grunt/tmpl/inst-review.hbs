@@ -1,0 +1,60 @@
+<div class="review-wrpr inline-blk">
+	<a href="reviews?highlight={{pid}}" class="review t-left js-entity-share" data-pid="{{pid}}">
+		<div class="review-meta">
+			<div class="ellipsis">
+				<div class="reviewer-img left">
+					<img src="{{#if profileImg}}{{profileImg}}{{else}}assets/img/vectors/user.svg{{/if}}" alt="image">
+				</div>
+				<span class="bold" title="{{#if name}}{{name}}{{else}}{{email}}{{/if}}">
+					{{#if name}}{{name}}{{else}}{{email}}{{/if}}
+				</span>
+				<br />
+				<span class="small">{{getDate reviewedOn}}</span>
+			</div>
+		</div>
+		<hr />
+		{{#if review}}
+		<div class="review-data {{#if highlighted}}big{{else}}medium{{/if}}">
+			<p>{{review}}</p>
+		</div>
+		{{/if}}
+		<div style="background: rgba(255, 255, 255, 0.05)">
+			<div>
+				<div class="inline-blk" style="width: 85%; padding: 0 10px 0 0">
+					<p class="msg small upper" style="margin-top: 3px">Infrastructure</p>
+					<div class="rating-bar-wrapper" style="position: static; background: rgba(0, 0, 0, 0.2); border-radius: 10px; overflow: hidden">
+						<div class="rating-bar" style="background: #53777a; width: {{#if rating.infra}}{{getRating rating "infra"}}{{else}}0{{/if}}%"></div>
+					</div>
+				</div><!--
+				--><div class="inline-blk center" style="width: 15%; line-height: 50px">
+					<span class="n-circle inline-blk white" data-rating="infra" style="vertical-align: middle; background: #53777a">{{#if rating.infra}}{{rating.infra}}{{else}}-.-{{/if}}</span>
+				</div>
+			</div>
+			<div>
+				<div class="inline-blk" style="width: 85%; padding: 0 10px 0 0">
+					<p class="msg small upper" style="margin-top: 3px">Faculty</p>
+					<div class="rating-bar-wrapper" style="position: static; background: rgba(0, 0, 0, 0.2); border-radius: 10px; overflow: hidden">
+						<div class="rating-bar" style="background: #3F51B5; width: {{#if rating.faculty}}{{getRating rating "faculty"}}{{else}}0{{/if}}%"></div>
+					</div>
+				</div><!--
+				--><div class="inline-blk center" style="width: 15%; line-height: 50px">
+					<span class="n-circle inline-blk white" data-rating="faculty" style="vertical-align: middle; background: #3F51B5">{{#if rating.faculty}}{{rating.faculty}}{{else}}-.-{{/if}}</span>
+				</div>
+			</div>
+			<div>
+				<div class="inline-blk" style="width: 85%; padding: 0 10px 0 0">
+					<p class="msg small upper" style="margin-top: 3px">Study material</p>
+					<div class="rating-bar-wrapper" style="position: static; background: rgba(0, 0, 0, 0.2); border-radius: 10px; overflow: hidden">
+						<div class="rating-bar" style="background: #009688; width: {{#if rating.material}}{{getRating rating "material"}}{{else}}0{{/if}}%"></div>
+					</div>
+				</div><!--
+				--><div class="inline-blk center" style="width: 15%; line-height: 50px">
+					<span class="n-circle inline-blk white" data-rating="material" style="vertical-align: middle; background: #009688">{{#if rating.material}}{{rating.material}}{{else}}-.-{{/if}}</span>
+				</div>
+			</div>
+		</div>
+		{{#if center}}
+		<p class="{{#if highlighted}}medium{{else}}small{{/if}}">Review for <span class="bold">{{center}}</span> center</p>
+		{{/if}}
+	</a>
+</div>

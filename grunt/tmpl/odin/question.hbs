@@ -1,0 +1,102 @@
+<div id="{{_id.$oid}}" class="padbox col-4 js-question">
+	<div class="tile tile--ques" {{#if hide}}style="display: none"{{/if}}>
+		<input type="hidden" class="js-ques-type" value="{{quesTypeId}}">
+		<div class="tile__header grid white big">
+			<div class="col col-6 no-gutter js-ques-subj">{{subject}}</div>
+			<div class="col col-6 no-gutter t-right js-ques-level">{{level}}</div>
+		</div>
+		<div class="tile__inner">
+			{{#if isEditable}}
+			<p class="medium t-right">
+				<a href="#edit-ques" class="js-edit-ques" data-ques-id="{{_id.$oid}}" tabindex="-1">edit</a>
+				&nbsp;
+				<a href="#delete-ques" class="js-delete-ques" data-ques-id="{{_id.$oid}}" tabindex="-1">delete</a>
+			</p>
+			{{/if}}
+			{{#if isMovable}}
+				<p class="msg hint t-right">
+					Move to
+					<select class="combo w-auto js-move-to">
+						<option value="-1" disabled="disabled" selected="selected">Please select</option>
+						{{#each sections}}
+						<option value="{{secId}}">{{secName}}</option>
+						{{/each}}
+					</select>
+				</p>
+			{{/if}}
+			{{#if isRemovable}}
+			<p class="medium t-right">
+				<a href="#remove-ques" class="js-remove-ques" data-ques-id="{{_id.$oid}}" data-sec-id="{{secId}}" tabindex="-1">remove</a>
+			</p>
+			{{/if}}
+			{{#ifCond quesTypeId '===' '1'}}{{!-- 4 option objective --}}
+			<p class="bold">Ques.</p>
+			<p class="msg hint big none tex2jax_ignore js-ques">{{{ques}}}</p>
+			<p class="msg hint big">{{{ques}}}</p>
+			<div class="center js-ro-ques-imgs">
+				{{#each quesImgs}}
+				<img src="{{hostName}}{{this}}" alt="options image" width="100" style="margin: 10px">
+				{{/each}}
+			</div>
+			<br />
+			<div class="js-options" {{#unless showOptions}}style="display: none"{{/unless}}>
+				<p class="bold">Options</p>
+				{{#each options}}
+				<div class="answ" data-index="{{@index}}">
+					<span class="bold">(&#x004{{incr @index}})</span>
+					<span class="msg hint big none tex2jax_ignore js-op{{@index}}">{{text}}</span>
+					<span class="msg hint big">{{{text}}}</span>
+					{{#if img}}
+					<img src="{{hostName}}{{img}}" alt="options image" width="100" style="margin: 10px">
+					{{/if}}
+					<span class="fa fa-check-circle fa-fw answ__ico--correct"></span>
+				</div>
+				{{/each}}
+				<p class="medium t-right">
+					<a href="#toggle-answer" class="js-view-answ" data-answer="{{answer}}" data-revealed="false" tabindex="-1">view answer</a>
+				</p>
+			</div>
+			{{/ifCond}}
+			{{#ifCond quesTypeId '===' '2'}}{{!-- assertion reason --}}
+			<p class="msg hint big">
+				<span class="bold">Assertion</span>:
+				<span class="js-assertion">{{assertion}}</span>
+			</p>
+			<p class="msg hint big">
+				<span class="bold">Reason</span>:
+				<span class="js-reason">{{reason}}</span>
+			</p>
+			<br />
+			<div class="js-options" {{#unless showOptions}}style="display: none"{{/unless}}>
+				<p class="bold">Options</p>
+				<p class="answ" data-index="0">
+					<span class="bold">(A)</span>
+					<span class="msg hint big">If both assertion and reason are true and reason is the correct explanation of assertion</span>
+					<span class="fa fa-check-circle fa-fw answ__ico--correct"></span>
+				</p>
+				<p class="answ" data-index="1">
+					<span class="bold">(B)</span>
+					<span class="msg hint big">If both assertion and reason are true but reason is not the correct explanation of assertion</span>
+					<span class="fa fa-check-circle fa-fw answ__ico--correct"></span>
+				</p>
+				<p class="answ" data-index="2">
+					<span class="bold">(C)</span>
+					<span class="msg hint big">If assertion is true but reason is false</span>
+					<span class="fa fa-check-circle fa-fw answ__ico--correct"></span>
+				</p>
+				<p class="answ" data-index="3">
+					<span class="bold">(D)</span>
+					<span class="msg hint big">If both assertion and reason are false</span>
+					<span class="fa fa-check-circle fa-fw answ__ico--correct"></span>
+				</p>
+				<p class="medium t-right">
+					<a href="#toggle-answer" class="js-view-answ" data-answer="{{answer}}" data-revealed="false" tabindex="-1">view answer</a>
+				</p>
+			</div>
+			{{/ifCond}}
+			{{#unless showOptions}}
+				<a href="#show-options" class="medium js-show-options" data-revealed="false" tabindex="-1">show options</a>
+			{{/unless}}
+		</div>
+	</div><!-- .tile -->
+</div>

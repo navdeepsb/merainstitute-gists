@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /institute/
+Disallow: /user/
+Disallow: /custommsg
+Disallow: /*/team?
+Disallow: /*/achievers?
+Disallow: /*/courses?
+Disallow: /*/centers?
+Disallow: /*/reviews?
+Disallow: /*/gallery?
+
+Allow: /institute/register
+
+Sitemap: http://www.merainstitute.com/sitemap.xml

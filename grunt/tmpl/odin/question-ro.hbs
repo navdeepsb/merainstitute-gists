@@ -1,0 +1,72 @@
+<div id="ques-{{quesIdx}}" data-quesid="{{quesId}}" class="js-question" style="padding: 20px">
+	<p class="bold">
+		Ques {{quesIdx}})
+		&nbsp;
+		<span class="fa fa-refresh fa-spin js-anw-loader" style="color: #28c684; display: none"></span>
+	</p>
+{{#ifCond quesTypeId '===' '1'}}{{!-- 4 option objective --}}
+	<p class="msg big">{{{ques}}}</p>
+	<div class="center js-ro-ques-imgs">
+	{{#each quesImgs}}
+		<img src="{{hostName}}{{this}}" alt="options image" width="100" style="margin: 10px">
+	{{/each}}
+	</div>
+	<div class="js-options">
+	{{#each options}}
+		<div class="answ" data-index="{{@index}}">
+			<input type="radio" id="option-{{../../quesIdx}}-{{@index}}" name="options-{{../../quesIdx}}" class="js-option" value="{{@index}}">
+			<label for="option-{{../../quesIdx}}-{{@index}}">
+				<span class="bold">(&#x004{{incr @index}})</span>
+				<span class="msg big">{{{text}}}</span>
+				{{#if img}}
+					<img src="{{hostName}}{{img}}" alt="options image" width="100" style="margin: 10px">
+				{{/if}}
+			</label>
+		</div>
+	{{/each}}
+	</div>
+{{/ifCond}}
+{{#ifCond quesTypeId '===' '2'}}{{!-- assertion reason --}}
+	<p class="msg big">
+		<span class="bold">Assertion</span>:
+		<span class="js-assertion">{{assertion}}</span>
+	</p>
+	<p class="msg big">
+		<span class="bold">Reason</span>:
+		<span class="js-reason">{{reason}}</span>
+	</p>
+	<div class="js-options">
+		<p class="answ" data-index="0">
+			<input type="radio" id="option-{{quesIdx}}-0" name="options-{{quesIdx}}" class="js-option" value="0">
+			<label for="option-{{quesIdx}}-0">
+				<span class="bold">(A)</span>
+				<span class="msg big">If both assertion and reason are true and reason is the correct explanation of assertion</span>
+			</label>
+		</p>
+		<p class="answ" data-index="1">
+			<input type="radio" id="option-{{quesIdx}}-1" name="options-{{quesIdx}}" class="js-option" value="1">
+			<label for="option-{{quesIdx}}-1">
+				<span class="bold">(B)</span>
+				<span class="msg big">If both assertion and reason are true but reason is not the correct explanation of assertion</span>
+			</label>
+		</p>
+		<p class="answ" data-index="2">
+			<input type="radio" id="option-{{quesIdx}}-2" name="options-{{quesIdx}}" class="js-option" value="2">
+			<label for="option-{{quesIdx}}-2">
+				<span class="bold">(C)</span>
+				<span class="msg big">If assertion is true but reason is false</span>
+			</label>
+		</p>
+		<p class="answ" data-index="3">
+			<input type="radio" id="option-{{quesIdx}}-3" name="options-{{quesIdx}}" class="js-option" value="3">
+			<label for="option-{{quesIdx}}-3">
+				<span class="bold">(D)</span>
+				<span class="msg big">If both assertion and reason are false</span>
+			</label>
+		</p>
+	</div>
+{{/ifCond}}
+	<a href="#" class="medium js-reset-options" data-ques-idx="{{quesIdx}}" tabindex="-1">reset options</a>
+	&nbsp;&nbsp;
+	<a href="#" class="medium js-mark-review" data-ques-idx="{{quesIdx}}" data-marked="false" tabindex="-1">mark for review</a>
+</div>

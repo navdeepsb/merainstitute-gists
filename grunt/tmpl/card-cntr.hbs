@@ -1,0 +1,47 @@
+<div class="srch-result-wrapper inline-blk">
+	<div class="srch-result srch-result-cntr">
+		<a href="centers?highlight={{pid}}" class="srch-result-header srch-result-cell js-entity-share" data-pid="{{pid}}">
+			<p class="msg {{#if highlighted}}bigger{{else}}big mono{{/if}} center white">{{city}}</p>
+		</a>
+		{{#if isEditable}}
+		<p class="msg mono entity-ctrl">
+			<span class="bb-cntr-edt big center left"><span class="fa fa-edit fa-fw"></span> Edit</span>
+			<span class="bb-cntr-del big center left"><span class="fa fa-times-circle fa-fw"></span> Delete</span>
+		</p>
+		{{/if}}
+		<div class="srch-result-cell t-left">
+			<p class="msg upper {{#if highlighted}}medium{{else}}small{{/if}}"><span class="underline">Address</span></p>
+			<p class="msg {{#if highlighted}}big{{/if}}">
+				{{address}}
+				<br />
+				{{city}} {{#if pincode}}- {{pincode}}{{/if}}
+				<br />
+				{{state}}
+			</p>
+			{{#if mapInfo}}
+			<p class="msg t-right">
+				<a href="">view on <span class="fa fa-google fa-fw"></span> Maps <span class="fa fa-angle-right fa-fw"></span></a>
+			</p>
+			{{/if}}
+		</div>
+		<hr />
+		<div class="srch-result-cell t-left">
+			<p class="msg upper {{#if highlighted}}medium{{else}}small{{/if}}"><span class="underline">Contact details</span></p>
+			<ul class="msg {{#if highlighted}}big{{/if}}">
+				<li>{{#if contactNum1}}{{contactNum1}}{{else}}N.A.{{/if}}</li>
+				<li>{{#if contactNum2}}{{contactNum2}}{{else}}N.A.{{/if}}</li>
+			</ul>
+		</div>
+		{{#if owner}}
+		<hr />
+		<div class="srch-result-cell center">
+			<p class="big msg ellipsis">
+				<a href="../{{owner.username}}" title="{{owner.name}}">{{owner.name}}</a>
+			</p>
+			<span class="dp-tiny dp-tiny-medi">
+				<img src="{{owner.profileImg}}" alt="logo">
+			</span>
+		</div>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,8 @@
+<div class="gallery-img">
+	<a href="../{{galleryImg}}" class="swipebox" {{#if descr}}title="{{descr}}"{{/if}} data-pid="{{pid}}">
+		<img {{#if descr}}alt="{{descr}}"{{/if}} src="../{{galleryImgThumb}}" />
+	</a>
+	<button class="gallery-img-edt js-modal-show js-non-owner" data-target="#mdl-edit-photo"><span class="fa fa-edit fa-fw"></span></button>
+	<button class="gallery-img-del js-modal-show js-non-owner" data-target="#mdl-img-del"><span class="fa fa-times-circle fa-fw"></span></button>
+	<a href="gallery?highlight={{pid}}" class="gallery-img-share center white upper small js-entity-share" data-pid="{{pid}}">share</a>
+</div>

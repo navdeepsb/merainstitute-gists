@@ -1,0 +1,40 @@
+<div class="srch-result-wrapper inline-blk">
+	<div class="srch-result srch-result-cntr">
+		<a href="#" class="srch-result-header srch-result-cell js-entity-share" data-pid="{{pid}}">
+			{{#if title}}
+			<p class="msg {{#if highlighted}}bigger{{else}}big{{/if}} mono center white ellipsis" title="{{title}}">{{title}}</p>
+			{{/if}}
+			{{#if achievement}}
+			<p class="msg {{#if highlighted}}bigger{{else}}big{{/if}} mono center white ellipsis" title="{{achievement}}">{{achievement}}</p>
+			{{/if}}
+		</a>
+		<div class="srch-result-cell">
+			<div class="inst-person-img {{#if highlighted}}person-img-big{{/if}}">
+				<img src="{{#if profileImg}}../{{profileImg}}{{else}}../assets/img/vectors/user.svg{{/if}}" alt="img">
+			</div>
+			<p class="msg {{#if highlighted}}bigger{{else}}big{{/if}} center">{{name}}</p>
+			{{#if navi}}
+			<p class="msg medium center">{{xp}} year(s) experience</p>
+			{{/if}}
+			{{#if navi}}
+			<p class="msg medium center ellipsis">{{exam}}</p>
+			{{/if}}
+		</div>
+		<hr />
+		<div class="srch-result-cell">
+			<p class="msg hint upper small"><span class="underline">Description</span></p>
+			<p class="msg hint {{#if highlighted}}{{else}}ellipsis{{/if}}" {{#if highlighted}}{{else}}title="{{descr}}"{{/if}}>{{#if descr}}{{descr}}{{else}}...{{/if}}</p>
+		</div>
+		{{#if owner}}
+		<hr />
+		<div class="srch-result-cell">
+			<p class="big msg ellipsis">
+				<a href="../{{owner.username}}" title="{{owner.name}}">{{owner.name}}</a>
+			</p>
+			<span class="dp-tiny dp-tiny-medi">
+				<img src="{{owner.profileImg}}" alt="logo">
+			</span>
+		</div>
+		{{/if}}
+	</div>
+</div>

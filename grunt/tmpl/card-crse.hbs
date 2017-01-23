@@ -1,0 +1,164 @@
+<div class="srch-result-wrapper inline-blk">
+	<div class="srch-result srch-result-crse">
+		<a href="courses?highlight={{#if _id.$oid}}{{_id.$oid}}{{else}}{{_id}}{{/if}}" class="srch-result-header srch-result-cell js-entity-share" data-owner="{{instUsername}}" data-pid="{{#if _id.$oid}}{{_id.$oid}}{{else}}{{_id}}{{/if}}">
+			<p class="msg {{#if highlighted}}bigger{{else}}big mono{{/if}}">
+				<span class="srch-result-crse-name">{{name}}</span>
+			</p>
+			<p class="msg {{#if highlighted}}big{{else}}medium{{/if}} t-right"><span class="highlight srch-result-crse-type">{{type}}</span></p>
+		</a>
+		{{#if isEditable}}
+		<p class="msg mono entity-ctrl">
+			<span class="bb-crse-edt big center left"><span class="fa fa-edit fa-fw"></span> Edit</span>
+			<span class="bb-crse-del big center left"><span class="fa fa-times-circle fa-fw"></span> Delete</span>
+		</p>
+		{{/if}}
+		{{#if descr}}
+		<div class="srch-result-cell">
+			<p class="msg {{#if highlighted}}medium{{else}}small{{/if}} ellipsis js-crse-descr" {{#if highlighted}}{{else}}title="{{descr}}"{{/if}}>{{descr}}</p>
+			<p class="t-right medium"><a href="#" class="js-toggle-descr">show more</a></p>
+		</div>
+		<hr />
+		{{/if}}
+		<div class="srch-result-cell">
+			<p class="msg upper small"><span class="underline">Targets</span></p>
+			<ul class="msg {{#if highlighted}}big{{/if}}">
+				{{#each examSubjMap}}
+				<li>{{examName}}</li>
+				<ul>
+					{{#each subjects}}
+						<li>{{this}}</li>
+					{{/each}}
+				</ul>
+				{{/each}}
+			</ul>
+		</div>
+		{{#each batches}}
+		<div class="srch-result-cell white batch-head">
+			<div class="{{#if ../highlighted}}big{{else}}medium{{/if}} inline-blk" style="width: 80%">
+				<p style="margin-bottom: 10px"><span class="underline">Batch #{{incr @index}}</span></p>
+				Start date - {{getDate dateStart}}
+				<br />
+				Duration - {{courseDur dur durUnit}}
+				<br />
+				<span class="big mono">{{courseProgress dateStart dur}}%</span> complete
+			</div><!--
+			--><div class="inline-blk" style="width: 20%">
+				<p class="center" style="padding-top: 20px">
+					<span class="fa fa-angle-down fa-2x" style="vertical-align: middle"></span>
+				</p>
+			</div>
+			<div class="course-progress-bar">
+				<div style="width: {{courseProgress dateStart dur}}%"></div>
+			</div>
+		</div><!-- batch head -->
+		<div class="batch-content">
+			{{#if ../isEditable}}
+			<p class="msg mono entity-ctrl">
+				<span class="bb-btch-edt big center left" data-batch-id="{{batchId}}"><span class="fa fa-edit fa-fw"></span> Edit</span>
+				<span class="bb-btch-del big center left" data-batch-id="{{batchId}}"><span class="fa fa-times-circle fa-fw"></span> Delete</span>
+			</p>
+			{{/if}}
+			{{#isAllFalsy centers slots isDirectAdmssn dateAdmssnExam regDateStart regDateEnd fee}}
+			<div class="srch-result-cell">
+				<p class="msg center medium">No other information available</p>
+			</div>
+			{{else}}
+			{{#if centers}}
+			<div class="srch-result-cell">
+				<p class="msg upper small"><span class="underline">Centers</span></p>
+				<p class="msg {{#if ../../../highlighted}}big{{/if}}">{{csv centers}}</p>
+			</div><!-- centers -->
+			{{/if}}
+			{{#if slots}}
+			<hr />
+			<div class="srch-result-cell">
+				<p class="msg upper small"><span class="underline">Slots</span></p>
+				{{#each slots}}
+				<div class="srch-result-slot">
+					<ul class="week"><!--
+						--><li class="center {{#contains workingDays 'Su'}}active-weekday-2{{/contains}}">Su</li><!--
+						--><li class="center {{#contains workingDays 'Mo'}}active-weekday-2{{/contains}}">Mo</li><!--
+						--><li class="center {{#contains workingDays 'Tu'}}active-weekday-2{{/contains}}">Tu</li><!--
+						--><li class="center {{#contains workingDays 'We'}}active-weekday-2{{/contains}}">We</li><!--
+						--><li class="center {{#contains workingDays 'Th'}}active-weekday-2{{/contains}}">Th</li><!--
+						--><li class="center {{#contains workingDays 'Fr'}}active-weekday-2{{/contains}}">Fr</li><!--
+						--><li class="center {{#contains workingDays 'Sa'}}active-weekday-2{{/contains}}">Sa</li>
+					</ul>
+					<p class="msg center mono {{#if ../../../../highlighted}}big{{/if}}">{{slotTime slotTimeStart}} - {{slotTime slotTimeEnd}}</p>
+				</div>
+				{{/each}}
+			</div><!-- slots -->
+			{{/if}}
+			{{#if isDirectAdmssn}}
+			<div class="srch-result-cell">
+				<p class="msg {{#if ../../../highlighted}}big{{/if}} t-right"><span class="highlight-on-light">Direct admission available</span></p>
+			</div><!-- direct admission -->
+			{{/if}}
+			{{#isAllFalsy dateAdmssnExam regDateStart regDateEnd}}
+			{{else}}
+			<hr />
+			<div class="srch-result-cell">
+				<p class="msg upper small"><span class="underline">Important dates</span></p>
+				<table class="msg" style="width: 100%">
+					{{#if dateAdmssnExam}}
+					<tr>
+						<td class="medium">Admission exam</td>
+						<td class="big t-right">{{getDate dateAdmssnExam}}</td>
+					</tr>
+					{{/if}}
+					{{#if regDateStart}}
+					<tr>
+						<td class="medium">Start of registration</td>
+						<td class="big t-right">{{getDate regDateStart}}</td>
+					</tr>
+					{{/if}}
+					{{#if regDateEnd}}
+					<tr>
+						<td class="medium">End of registration</td>
+						<td class="big t-right">{{getDate regDateEnd}}</td>
+					</tr>
+					{{/if}}
+				</table>
+			</div><!-- imp dates -->
+			{{/isAllFalsy}}
+			{{#if fee}}
+			<hr />
+			<div class="srch-result-cell">
+				<p class="msg upper small"><span class="underline">Fee</span></p>
+				<table class="msg" style="width: 100%">
+					<tr>
+						<td>Standard Fee</td>
+						<td class="big t-right" style="width: 40%">Rs. {{fee}}/-</td>
+					</tr>
+					{{#each discountCriteria}}
+					<tr>
+						<td>{{criteria}}</td>
+						<td class="big t-right" style="vertical-align: top">{{val}}% off</td>
+					</tr>
+					{{/each}}
+				</table>
+			</div><!-- fee -->
+			{{/if}}
+			{{/isAllFalsy}}
+		</div><!-- batch content -->
+		<input type="submit" class="bb-btch-sve none btBatchSave_{{batchId}}">
+		{{/each}}
+		{{#if isEditable}}
+		<p class="msg mono entity-ctrl">
+			<span class="bb-btch-add full-width big center js-modal-show" data-target="#mdl-frm-btch" data-parent="{{_id}}">+ Add batch</span>
+		</p>
+		{{/if}}
+		{{#if instUsername}}
+		<hr />
+		<div class="srch-result-cell center">
+			<p class="big msg ellipsis">
+				<a href="../{{instUsername}}" class="js-banner" title="{{instName}}">{{instName}}</a>
+			</p>
+			<span class="dp-tiny dp-tiny-medi">
+				<img src="{{#if instProfileImg}}{{instProfileImg}}{{else}}assets/img/logo-placeholder.jpg{{/if}}" alt="logo">
+			</span>
+		</div>
+		{{/if}}
+		<input type="submit" class="bb-crse-sve none btCourseSave_{{_id}}">{{!-- this course will trigger the saveCourse function (fingers crossed!) --}}
+	</div>
+</div>

@@ -1,0 +1,13 @@
+{{#each this}}
+<div class="cb-grp-container">
+	<p class="cb-grp-heading upper"><span>{{catName}}</span></p>
+	{{#each exams}}
+	<div class="check-wrapper">
+		<input id="cb-{{noSpace examName}}" type="checkbox" class="cb" data-exam-id="{{examName}}">
+		<label for="cb-{{noSpace examName}}" class="lbl-cb">
+			<span></span> {{examName}}
+		</label>
+	</div>
+	{{/each}}
+</div>
+{{/each}}

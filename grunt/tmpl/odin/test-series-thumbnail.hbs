@@ -1,0 +1,30 @@
+<div class="padbox col-4 inline-blk js-test-series-thumb">
+	<div class="tile">
+		<div class="tile__inner">
+			<div style="min-height: 120px">
+				<span class="bold bigger">{{name}}</span>
+				<br />
+				<span class="msg big">
+					{{#if desc}}{{desc}}{{else}}No description{{/if}}
+				</span>
+				<br />
+				<div class="grid">
+					<div class="col col-6 no-gutter">
+						<a href="{{hostName}}institute/online-tests/test-series/save?mode=edit&id={{_id.$oid}}" class="medium">edit</a>
+						&nbsp;
+						<a href="#delete-test-series" class="medium js-delete-test-series" data-test-series-id="{{_id.$oid}}">delete</a>
+					</div>
+					<div class="col col-6 no-gutter t-right">
+						<p class="msg big">
+							<span class="mono">{{tests.length}}</span> tests
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<p class="msg big t-right">
+				<a href="#" class="medium">view tests</a>
+			</p>
+		</div><!-- .tile__inner -->
+	</div><!-- .tile -->
+</div><!-- .padbox -->

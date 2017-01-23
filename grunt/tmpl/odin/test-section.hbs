@@ -1,0 +1,14 @@
+<div id="{{secId}}" class="test-section__wrapper inline-blk">
+	<div class="test-section">
+		<p class="big bold ellipsis js-sec-name">{{secName}}</p>
+		<form class="js-frm-rename-section" data-sec-id="{{secId}}" style="display: none">
+			<input type="text" class="tb tb-light" value="{{secName}}">
+		</form>
+		<p class="medium t-right">
+			<a href="#" class="js-rename-section" data-sec-id="{{secId}}" tabindex="-1">rename</a>
+			&nbsp;
+			<a href="#" class="js-delete-section" data-sec-id="{{secId}}" tabindex="-1">delete</a>
+		</p>
+		<div class="section-ques" data-sec-id="{{secId}}"></div>
+	</div>
+</div>

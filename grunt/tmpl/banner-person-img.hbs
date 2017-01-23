@@ -1,0 +1,20 @@
+<div class="spiracle">
+	<div class="anterior">
+		<img src="{{#if profileImg}}{{profileImg}}{{else}}assets/img/vectors/user.svg{{/if}}" alt="image">
+	</div>
+	<div class="posterior">
+		<p class="white">
+			<span class="bigger">{{name}}</span>
+			<br />
+			{{#if title}}
+			<span class="medium mono">{{title}}</span>
+			<br />
+			{{/if}}
+			{{#if achievement}}
+			<span class="medium mono">{{achievement}}</span>
+			<br />
+			{{/if}}
+			<span class="medium">{{descr}}</span>
+		</p>
+	</div>
+</div>

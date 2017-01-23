@@ -1,0 +1,435 @@
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/pages/layout/layout.jsp">
+		<!-- <put-attribute name="title" value="Untitled" type="string" /> -->
+
+		<put-attribute name="metaForSeo" value="/WEB-INF/pages/common/meta.jsp" />
+		<put-attribute name="title" value="/WEB-INF/pages/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/pages/common/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/pages/common/menu.jsp" />
+		<put-attribute name="search" value="/WEB-INF/pages/common/search.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="socialMetaTags" value="" />
+		<put-attribute name="footer" value="/WEB-INF/pages/common/footer.jsp" />
+		<put-attribute name="fbSDK" value="" />
+		<put-attribute name="googleSDK" value="" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="title" value="MeraInstitute - The one place to find courses for all popular exams in India" type="string" />
+		<put-attribute name="body" value="/WEB-INF/pages/home.jsp" />
+		<put-attribute name="socialMetaTags" value="/WEB-INF/pages/social/openGraph.jsp" />
+	</definition>
+	<definition name="home.institute" extends="home">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="home.student" extends="home">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+		<put-attribute name="googleSDK" value="/WEB-INF/pages/social/googleSDK.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="registerInstitute" extends="baseLayout">
+		<put-attribute name="title" value="Register your institute now and reach students" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/institute-register.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="wall" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/pages/banner.jsp" />
+		<put-attribute name="socialMetaTags"
+			value="/WEB-INF/pages/social/openGraph.jsp" />
+		<put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+		<put-attribute name="googleSDK" value="/WEB-INF/pages/social/googleSDK.jsp" />
+	</definition>
+	<definition name="wall.institute" extends="wall">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="wall.student" extends="wall">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="instituteProfile" extends="baseLayout">
+		<put-attribute name="title" value="Portfolio" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/institute-profile.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="customMessage" extends="baseLayout">
+		<put-attribute name="title" value="Status" />
+		<put-attribute name="body" value="/WEB-INF/pages/custom-msg.jsp" />
+	</definition>
+	<definition name="customMessage.institute" extends="customMessage">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="customMessage.student" extends="customMessage">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="test" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/pages/test.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="team" extends="baseLayout">
+		<!-- <put-attribute name="title" value="Team" /> -->
+		<put-attribute name="body" value="/WEB-INF/pages/institute-team.jsp" />
+		<put-attribute name="socialMetaTags" value="/WEB-INF/pages/social/openGraph.jsp" />
+		<put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+	</definition>
+	<definition name="team.institute" extends="team">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="team.student" extends="team">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="achievers" extends="baseLayout">
+		<!-- <put-attribute name="title" value="Achievers" /> -->
+		<put-attribute name="body" value="/WEB-INF/pages/institute-achievers.jsp" />
+		<put-attribute name="socialMetaTags" value="/WEB-INF/pages/social/openGraph.jsp" />
+		<put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+	</definition>
+	<definition name="achievers.institute" extends="achievers">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="achievers.student" extends="achievers">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="support" extends="baseLayout">
+		<put-attribute name="title" value="Support" />
+		<put-attribute name="body" value="/WEB-INF/pages/support.jsp" />
+	</definition>
+	<definition name="support.institute" extends="support">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="support.student" extends="support">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="centers" extends="baseLayout">
+		<!-- <put-attribute name="title" value="Centers" /> -->
+		<put-attribute name="body" value="/WEB-INF/pages/institute-centers.jsp" />
+		<put-attribute name="socialMetaTags" value="/WEB-INF/pages/social/openGraph.jsp" />
+		<put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+	</definition>
+	<definition name="centers.institute" extends="centers">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="centers.student" extends="centers">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="gallery" extends="baseLayout">
+		<!-- <put-attribute name="title" value="Gallery" /> -->
+		<put-attribute name="body" value="/WEB-INF/pages/institute-gallery.jsp" />
+		<put-attribute name="socialMetaTags" value="/WEB-INF/pages/social/openGraph.jsp" />
+		<put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+	</definition>
+	<definition name="gallery.institute" extends="gallery">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="gallery.student" extends="gallery">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="courses" extends="baseLayout">
+		<!-- <put-attribute name="title" value="Courses" /> -->
+		<put-attribute name="body" value="/WEB-INF/pages/institute-courses.jsp" />
+		<put-attribute name="socialMetaTags" value="/WEB-INF/pages/social/openGraph.jsp" />
+		<put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+	</definition>
+	<definition name="courses.institute" extends="courses">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="courses.student" extends="courses">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="reviews" extends="baseLayout">
+		<!-- <put-attribute name="title" value="Reviews" /> -->
+		<put-attribute name="body" value="/WEB-INF/pages/institute-reviews.jsp" />
+		<put-attribute name="socialMetaTags" value="/WEB-INF/pages/social/openGraph.jsp" />
+        <put-attribute name="fbSDK" value="/WEB-INF/pages/social/fbSDK.jsp" />
+		<put-attribute name="googleSDK" value="/WEB-INF/pages/social/googleSDK.jsp" />
+	</definition>
+	<definition name="reviews.institute" extends="reviews">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="reviews.student" extends="reviews">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="404" extends="baseLayout">
+		<put-attribute name="title" value="Error 404" />
+		<put-attribute name="body" value="/WEB-INF/pages/404.jsp" />
+	</definition>
+	<definition name="404.institute" extends="404">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="404.student" extends="404">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="manageAccount.institute" extends="baseLayout">
+		<put-attribute name="title" value="Account Settings" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/institute-account.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+
+	<definition name="manageAccount.student" extends="baseLayout">
+		<put-attribute name="title" value="Account Settings" />
+		<put-attribute name="body" value="/WEB-INF/pages/student-account.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="search" extends="baseLayout">
+		<put-attribute name="title" value="Search results" />
+		<put-attribute name="body" value="/WEB-INF/pages/search-results.jsp" />
+	</definition>
+	<definition name="search.institute" extends="search">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="search.student" extends="search">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="filter" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/pages/search-filter-results.jsp" />
+	</definition>
+	<definition name="filter.institute" extends="filter">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="filter.student" extends="filter">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="forgotPassword" extends="baseLayout">
+		<put-attribute name="title" value="Forgot Password" />
+		<put-attribute name="body" value="/WEB-INF/pages/reset-pwd.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="instituteAdvertise" extends="baseLayout">
+		<put-attribute name="title" value="Advertise with us" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/institute-advertise.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="our-team" extends="baseLayout">
+		<put-attribute name="title" value="Our team" />
+		<put-attribute name="body" value="/WEB-INF/pages/our-team.jsp" />
+	</definition>
+	<definition name="our-team.institute" extends="our-team">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="our-team.student" extends="our-team">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="top-institutes" extends="baseLayout">
+		<put-attribute name="title" value="Top coaching institutes" />
+		<put-attribute name="body" value="/WEB-INF/pages/top-institutes.jsp" />
+	</definition>
+	<definition name="top-institutes.institute" extends="top-institutes">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="top-institutes.student" extends="top-institutes">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsDashboard" extends="baseLayout">
+		<put-attribute name="title" value="Online Tests Dashboard" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-dashboard.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsQuesBank" extends="baseLayout">
+		<put-attribute name="title" value="Question Bank" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-ques-bank.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsSave" extends="baseLayout">
+		<put-attribute name="title" value="Save Online Test" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-save.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsSaveQues" extends="baseLayout">
+		<put-attribute name="title" value="Save Questions" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-save-questions.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsViewAll" extends="baseLayout">
+		<put-attribute name="title" value="View All Tests" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-view-all.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestSeriesSave" extends="baseLayout">
+		<put-attribute name="title" value="Save Online Test Series" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-test-series-save.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestSeriesViewAll" extends="baseLayout">
+		<put-attribute name="title" value="View All Test Series" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-test-series-view-all.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsConduct" extends="baseLayout">
+		<put-attribute name="title" value="Conduct Test" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-conduct.jsp" />
+	</definition>
+	<definition name="onlineTestsConduct.institute" extends="onlineTestsConduct">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+	</definition>
+	<definition name="onlineTestsConduct.student" extends="onlineTestsConduct">
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/studentMenu.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsInstructions" extends="baseLayout">
+		<put-attribute name="title" value="Online Test Instructions" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-instructions.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+	<definition name="onlineTestsReports" extends="baseLayout">
+		<put-attribute name="title" value="Online Test Reports" />
+		<put-attribute name="menu"
+			value="/WEB-INF/pages/common/instituteMenu.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/online-tests-reports.jsp" />
+	</definition>
+
+	<!-- ******************************************************************** -->
+
+</tiles-definitions>

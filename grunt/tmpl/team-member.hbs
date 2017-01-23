@@ -1,0 +1,35 @@
+<div class="tm-membr-cntnr inline-blk t-left">
+	<div class="tm-membr">
+		<input class="js-membr-id" type="hidden" value="{{pid}}">
+		<input class="js-membr-img" type="hidden" value="{{profileImg}}">
+		<div class="left tm-membr-img js-img-upload-ctrl">
+			<img class="js-img-upload" src="{{#if profileImg}}../{{profileImg}}{{else}}../assets/img/vectors/user.svg{{/if}}" alt="team member photo" data-upload-type="TEAM_IMAGE" data-owner="{{pid}}">
+			<button class="btLogoUpload"><span class="fa fa-upload fa-fw"></span> Upload</button>
+			<button class="btLogoRemove js-modal-show" data-target="#mdl-img-del"><span class="fa fa-times-circle fa-fw"></span></button>
+			<input class="btLogoUploadDefault none" class="none" type="file" accept="image/*">
+		</div>
+		<p class="upper small heading"><span class="underline">Name</span></p>
+		<input type="text" class="js-membr-nm tb tb-light tb-read-only w-auto" disabled="true" value="{{name}}">
+		<br />
+		<p class="upper small heading"><span class="underline">Designation</span></p>
+		<input type="text" class="js-membr-ttle tb tb-light tb-read-only w-auto" disabled="true" value="{{title}}">
+		<br />
+		<p class="upper small heading"><span class="underline">Description</span></p>
+		<textarea name="" id="" cols="30" rows="10" class="js-membr-desc tb tb-light tb-read-only txt-ar" disabled="true">{{#if descr}}{{descr}}{{else}}...{{/if}}</textarea>
+		<br />
+		<button class="bb-membr-edt"><span class="fa fa-edit fa-fw"></span></button>
+		<button class="bb-membr-del"><span class="fa fa-trash fa-fw"></span></button>
+		<div class="js-membr-save pacer-wrappr center" style="display: none">
+			<button class="bb-membr-save btn-sheen btn-sheen-small btn-sheen-intrctve upper">
+				Save
+				<span class="sheen"></span>
+			</button>
+			<div class="pacer"></div>
+		</div>
+		<div class="overlay" style="display: none">
+			<br />
+			<br />
+			<p class="center white mono bigger">Deleting...</p>
+		</div>
+	</div>
+</div>

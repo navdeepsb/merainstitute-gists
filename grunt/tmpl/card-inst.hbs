@@ -1,0 +1,70 @@
+<div class="srch-result-wrapper inline-blk">
+	<div class="srch-result srch-result-inst t-left">
+		<a href="{{username}}" class="srch-result-inst-header img-wrapper">
+			{{#if heroImgThumb}}
+			<img class="lazy" {{#if noLazy}}src="{{heroImgThumb}}"{{else}}data-original="{{heroImgThumb}}"{{/if}} alt="heroImg">
+			{{else}}
+			{{#if heroImg}}
+			<img class="lazy" {{#if noLazy}}src="{{heroImg}}"{{else}}data-original="{{heroImg}}"{{/if}} alt="heroImg">
+			{{/if}}
+			{{/if}}
+		</a>
+		<div class="srch-result-inst-main-details">
+			<a href="{{username}}" class="srch-result-inst-dp">
+				<img class="lazy" {{#if noLazy}}src="{{#if profileImg}}{{profileImg}}{{else}}assets/img/logo-placeholder.jpg{{/if}}"{{else}}data-original="{{#if profileImg}}{{profileImg}}{{else}}assets/img/logo-placeholder.jpg{{/if}}"{{/if}} alt="profileImg">
+			</a>
+			<div class="srch-result-inst-unm-rating">
+				<p class="msg ellipsis">@{{processUnm username}}</p>
+				<div class="rating-bar-wrapper">
+					<div class="rating-bar rating-good" style="width: {{getRating aggRating ratingType}}%"></div>
+				</div>
+			</div>
+			<div class="srch-result-cell">
+				<p class="msg big center srch-result-inst-name ellipsis">
+					<span class="highlight-on-light">
+						<a href="{{username}}" title="{{name}}">{{name}}</a>
+					</span>
+				</p>
+			</div>
+			{{#if centers}}
+			<hr />
+			<div class="srch-result-cell">
+				<p class="msg hint upper small"><span class="underline">Centers</span></p>
+				<ul class="msg">
+					{{#each centers}}
+					<li>{{address}}, {{city}}, {{state}}</li>
+					{{/each}}
+				</ul>
+			</div>
+			{{/if}}
+			<hr />
+			<div class="srch-result-cell">
+				<p class="msg hint upper small"><span class="underline">Stats</span></p>
+				<ul class="msg">
+					{{#if stats.courses}}
+					<li><a href="{{username}}/courses">{{stats.courses}} courses</a></li>
+					{{/if}}
+					{{#if stats.team}}
+					<li><a href="{{username}}/team">{{stats.team}} staff</a></li>
+					{{/if}}
+					{{#if stats.centers}}
+					<li><a href="{{username}}/centers">{{stats.centers}} centers</a></li>
+					{{/if}}
+					{{#if stats.reviews}}
+					<li><a href="{{username}}/reviews">{{stats.reviews}} reviews</a></li>
+					{{/if}}
+					{{#if stats.gallery}}
+					<li><a href="{{username}}/gallery">{{stats.gallery}} photos</a></li>
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+		{{#if isFeatured}}
+	    <div class="ribbon">
+	        <div class="ribbon__banner">
+	            <div class="ribbon__text">Featured</div>
+	        </div>
+	    </div>
+		{{/if}}
+	</div>
+</div>
